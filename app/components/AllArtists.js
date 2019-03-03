@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-// import { connect } from 'react-redux'
-import {BrowserRouter, Router, Switch, Link, Redirect} from 'react-router-dom'
-import {getAllPhotographs} from '../redux/store'
-//double check on .store path...
+import { connect } from 'react-redux'
+import {getAllArtists} from '../redux/action-and-thunk-creators'
 
 class AllArtists extends Component {
 
@@ -10,21 +8,42 @@ class AllArtists extends Component {
         super(props)
     }
 
-    // componentDidMount() {
-    //     console.log('hello?')
-    //     this.props.getAllArtists()
-    // }
+    componentDidMount() {
+        console.log('hello?')
+        this.props.getAllArtists()
+    }
 
     render() {
        
         return (
             <div>
-                <h1>All Artists:</h1>
-                <h2>hello????</h2>
+                <h1 className = 'section-title'>All Artists:</h1>
+                <ul className = 'container'>
+                {this.props.artists.map(artist => (
+                    <div>
+                    <div className='artist'key={artist.id}>
+                    {artist.firstName + ' ' + artist.lastName}</div>
+                    <div className='artist'key={artist.id}>
+                    {artist.born}</div>
+                    </div>
+                ))}
+                </ul>
             </div>
         )
     }
 }
 
-export default AllArtists;
-// export default connect(mapStateToProps, mapDispatchToProps)(AllCampuses)
+const mapStateToProps = (state) => {
+    return {
+        artists: state.artistsReducer.artists
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getAllArtists: () => dispatch(getAllArtists())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllArtists)

@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {BrowserRouter, Router, Switch, Link, Redirect} from 'react-router-dom'
 import {getAllPhotographs} from '../redux/action-and-thunk-creators'
-import {photographsReducer, rootReducer, artistsReducer} from '../redux/reducers'
 //double check on .store path...
 
 class AllPhotographs extends Component {
@@ -13,8 +11,7 @@ class AllPhotographs extends Component {
 
     componentDidMount() {
         this.props.getAllPhotographs()
-        console.log(this.props, 'what is props')
-        console.log(this.props.photographs, 'what is photographs on props')
+        
     }
 
     render() {
@@ -25,8 +22,19 @@ class AllPhotographs extends Component {
                 <h1 className = 'section-title'>All Photographs:</h1>
                 <ul className='container'>
                 {this.props.photographs.map(photograph => (
-                    <div className='photo' key={photograph.id}>
+                    <div>
+                    <div className='photo date' key={photograph.id}>
                     {photograph.date}</div>
+                    <div className='photo place' key= {photograph.id}>
+                    {photograph.place}</div>
+                    <div className='price'>
+                    {photograph.price}</div>
+                    <div className='image url'>
+                    {photograph.imageUrl}</div>
+                    <div className='image size'>
+                    {photograph.size}</div>
+                    </div>
+                    
                 ))}
                 </ul>  
             </div>
@@ -42,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getAllPhotographs: ()=> dispatch(getAllPhotographs())
+        getAllPhotographs: () => dispatch(getAllPhotographs())
     }
 }
 

@@ -9,9 +9,6 @@ const initialState = {
 
 //photographs
 const photographsReducer = (state = initialState, action) => {
-    console.log('inside photographs reducer')
-    console.log(action.photographs, 'what is photographs')
-    console.log(action, 'what is the action')
     switch (action.type) {
         case GOT_ALL_PHOTOGRAPHS:
         return { 

@@ -22,7 +22,7 @@ const Photographs = require('./server/db/photographs')
     date: 1989,
     place: 'USA',
     price: 500,
-    imageUrl: 'image',
+    imageUrl: 'https://en.wikipedia.org/wiki/Ansel_Adams#/media/File:Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
     size: 3.5,
     artistId: 1,
   // }, {
