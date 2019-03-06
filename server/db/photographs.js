@@ -7,6 +7,9 @@ module.exports = db.define("photographs", {
     // allowNull: false,
     // notEmpty: true
   },
+  name: {
+    type: Sequelize.STRING,
+  },
   place: {
     type: Sequelize.STRING,
     // allowNull: false,

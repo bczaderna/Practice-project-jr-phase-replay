@@ -2,6 +2,7 @@
 
 const router = require('express').Router()
 const Artists = require('../db/artists')
+const Photographs = require('../db/photographs')
 
 
 router.get('/', async (req, res, next) => {
@@ -12,5 +13,31 @@ router.get('/', async (req, res, next) => {
      next(err);
    }
 })
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    let singleArtist = await Artists.findById(req.params.id);
+    res.send(singleArtist);
+  } catch (err) {
+    next(err);
+  }
+})
+
+// router.get('/:id', async (req, res, next) => {
+//   try {
+//     let singleArtist = await Artists.findById(req.params.id);
+
+//     if(singleArtist) {
+//       const singleArtistAndPhotographs = await Artists.findAll({
+//         where: {id: req.params.id},
+//         include: [{model: Photographs}]
+//       })
+//       res.send(singleArtistAndPhotographs);
+//     }
+    
+//   } catch (err) {
+//     next(err)
+//   }
+// })
 
 module.exports = router

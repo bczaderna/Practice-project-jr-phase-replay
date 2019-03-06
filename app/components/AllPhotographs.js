@@ -10,12 +10,13 @@ class AllPhotographs extends Component {
     }
 
     componentDidMount() {
+        console.log('here')
         this.props.getAllPhotographs()
         
     }
 
     render() {
-       
+        console.log(this.props.photographs, 'photographs obj')
         return (
             // console.log('returning all photographs')
             <div>
@@ -29,9 +30,10 @@ class AllPhotographs extends Component {
                     {photograph.place}</div>
                     <div className='price'>
                     {photograph.price}</div>
+                    <img src={photograph.imageUrl}/>
                     <div className='image url'>
-                    {photograph.imageUrl}</div>
-                    <div className='image size'>
+                    </div>
+                    <div className='image size' key={photograph.id}>
                     {photograph.size}</div>
                     </div>
                     

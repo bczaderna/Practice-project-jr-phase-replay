@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GOT_ALL_PHOTOGRAPHS, GOT_ALL_ARTISTS } from './actions'
+import { GOT_ALL_PHOTOGRAPHS, GOT_ALL_ARTISTS, GOT_ONE_ARTIST, GOT_ONE_PHOTOGRAPH, ADDED_PHOTOGRAPH, ADDED_ARTIST } from './actions'
 
 
 //ACTION CREATORS
@@ -11,12 +11,41 @@ export const gotAllPhotographs = (photographsArr) => {
     }
 }
 
+export const gotOnePhotograph = (photograph) => {
+    return {
+        type: GOT_ONE_PHOTOGRAPH,
+        singlePhotograph: photograph
+    }
+}
+
+export const addedPhotograph = photograph => {
+    return {
+        //not sure about what the name of the state should be here...
+        type: ADDED_PHOTOGRAPH,
+        photograph: photograph
+    }
+}
+
 
 //artists
 export const gotAllArtists = (artistsArr) => {
     return {
         type: GOT_ALL_ARTISTS,
         artists: artistsArr
+    }
+}
+
+export const gotOneArtist = (artist) => {
+    return {
+        type: GOT_ONE_ARTIST,
+        singleArtist: artist
+    }
+}
+
+export const addedArtist = artist => {
+    return {
+        type: ADDED_ARTIST,
+        artist: artist
     }
 }
 
@@ -31,13 +60,46 @@ export const getAllPhotographs = () => {
     }
 }
 
+export const getOnePhotograph = (photographId) => {
+    return async dispatch => {
+        //how to get that literal id value off of the url request?
+
+        let response = await axios.get(`/api/photographs/${photographId}`);
+        let photograph = response.data;
+        dispatch(gotOnePhotograph(photograph))
+    }
+}
+
+export const addPhotograph = (photographInfo) => {
+    return async dispatch => {
+        const response = await axios.post('/api/photographs/form', photographInfo)
+        const newPhotograph = response.data;
+        dispatch(addedPhotograph(newPhotograph))
+    }
+}
+
 
 //artists
 export const getAllArtists = () => {
     return async dispatch => {
         let response = await axios.get('/api/artists');
         let artistsArr = response.data;
-        console.log(artistsArr, 'artists array from db')
         dispatch(gotAllArtists(artistsArr));
+    }
+}
+
+export const getOneArtist = (artistId) => {
+    return async dispatch => {
+        let response = await axios.get(`/api/artists/${artistId}`);
+        let artist = response.data[0];
+        dispatch(gotOneArtist(artist))
+    }
+}
+
+export const addArtist = (artistInfo) => {
+    return async dispatch => {
+        const response = await axios.post('/api/artists/form', artistInfo);
+        const newArtist = response.data;
+        dispatch(addedArtist(newArtist));
     }
 }

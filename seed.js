@@ -5,50 +5,65 @@ const Photographs = require('./server/db/photographs')
 
 
   const artists = [{
-    firstName: 'Bianca',
-    lastName: 'Czaderna',
-    born: '1989'
-  // }, {
-  //   firstName: 'Saturn Campus',
-  //   lastName: 'https://www.google.com/search?tbm=isch&sa=1&ei=X6phXIq_NvKv_Qb66JPYAQ&q=saturn+images&oq=saturn+images&gs_l=img.3..0i67j0l9.187427.188811..188939...0.0..0.76.747.13....3..1....1..gws-wiz-img.......35i39.LU_C-IX3DK0#imgrc=Mv8rdv9eE6n0fM:',
-  //   born: 'planet saturn'
-  // }, {
-  //   firstName: 'Saturn Campus',
-  //   lastName: 'https://www.google.com/search?tbm=isch&sa=1&ei=X6phXIq_NvKv_Qb66JPYAQ&q=saturn+images&oq=saturn+images&gs_l=img.3..0i67j0l9.187427.188811..188939...0.0..0.76.747.13....3..1....1..gws-wiz-img.......35i39.LU_C-IX3DK0#imgrc=Mv8rdv9eE6n0fM:',
-  //   born: 'planet saturn'
+    firstName: 'Walker',
+    lastName: 'Evans',
+    born: '1903',
+  }, {
+    firstName: 'Margaret',
+    lastName: 'Bourke-White',
+    born: '1987',
+  }, {
+    firstName: 'Ansel',
+    lastName: 'Adams',
+    born: '1902',
+  }, {
+    firstName: 'Henri',
+    lastName: 'Carter-Bresson',
+    born: '1908', 
+  }, {
+    firstName: 'Andre',
+    lastName: 'Kertesz',
+    born: '1894',
   }]
 
   const photographs = [{
     date: 1989,
+    name: 'New Mexico',
     place: 'USA',
     price: 500,
-    imageUrl: 'https://en.wikipedia.org/wiki/Ansel_Adams#/media/File:Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
     size: 3.5,
     artistId: 1,
-  // }, {
-  //   date: 'Matt',
-  //   place: 'Damon',
-  //   price: 'mdamon@gmail.com',
-  //   imageUrl: '',
-  //   size: 3.5,
-  // }, {
-  //   date: 'Matt',
-  //   place: 'Damon',
-  //   price: 'mdamon@gmail.com',
-  //   imageUrl: '',
-  //   size: 3.5,
-  // }, {
-  //   date: 'Matt',
-  //   place: 'Damon',
-  //   price: 'mdamon@gmail.com',
-  //   imageUrl: '',
-  //   size: 3.5,
-  // }, {
-  //   date: 'Matt',
-  //   place: 'Damon',
-  //   price: 'mdamon@gmail.com',
-  //   imageUrl: '',
-  //   size: 3.5,
+  }, {
+    date: 1989,
+    name: 'New Mexico',
+    place: 'USA',
+    price: 500,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
+    size: 3.5,
+    artistId: 1,
+  }, {
+    date: 1989,
+    name: 'New Mexico',
+    place: 'USA',
+    price: 500,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
+    size: 3.5,
+    artistId: 1,
+  }, {
+    name: 'New Mexico',
+    place: 'USA',
+    price: 500,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
+    size: 3.5,
+    artistId: 1,
+  }, {
+    name: 'New Mexico',
+    place: 'USA',
+    price: 500,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg/800px-Ansel_Adams_-_National_Archives_79-AA-Q01_restored.jpg',
+    size: 3.5,
+    artistId: 1,
   }]
 
 const seed = async () => {
