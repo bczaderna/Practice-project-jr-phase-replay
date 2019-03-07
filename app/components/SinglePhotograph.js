@@ -10,14 +10,15 @@ class SinglePhotograph extends Component {
     }
 
     render() {
-
+        console.log(this.props.singlePhotograph.artist, 'what is eager loaded artist info')
         return (
             <div>
                 {
                     <ul>
                         <li>{this.props.singlePhotograph.date}</li>
                         <li>{this.props.singlePhotograph.name}</li>
-                        <li><img src={this.props.singlePhotograph.imageUrl}/></li>
+                        {/* <li>{this.props.singlePhotograph.artist.born}</li> */}
+                        <li><img src={this.props.singlePhotograph.imageUrl} /></li>
                     </ul>
                 }
             </div>

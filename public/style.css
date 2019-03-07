@@ -31,3 +31,9 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .photograph {
+    height: auto;
+    width: auto;
+    /* border:  */
+  }

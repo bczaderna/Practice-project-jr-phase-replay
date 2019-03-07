@@ -62,8 +62,7 @@ export const getAllPhotographs = () => {
 
 export const getOnePhotograph = (photographId) => {
     return async dispatch => {
-        //how to get that literal id value off of the url request?
-
+       
         let response = await axios.get(`/api/photographs/${photographId}`);
         let photograph = response.data;
         dispatch(gotOnePhotograph(photograph))
@@ -91,7 +90,7 @@ export const getAllArtists = () => {
 export const getOneArtist = (artistId) => {
     return async dispatch => {
         let response = await axios.get(`/api/artists/${artistId}`);
-        let artist = response.data[0];
+        let artist = response.data;
         dispatch(gotOneArtist(artist))
     }
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import {BrowserRouter, Route, Link, Redirect} from 'react-router-dom'
 import {getAllArtists} from '../redux/action-and-thunk-creators'
 
 class AllArtists extends Component {
@@ -20,12 +21,13 @@ class AllArtists extends Component {
                 <h1 className = 'section-title'>All Artists:</h1>
                 <ul className = 'container'>
                 {this.props.artists.map(artist => (
-                    <div>
+                    
+                    <Link to={`/artists/${artist.id}`}>
                     <div className='artist'key={artist.id}>
-                    {artist.firstName + ' ' + artist.lastName}</div>
+                    {artist.firstName + ' ' + artist.lastName}
                     <div className='artist'key={artist.id}>
-                    {artist.born}</div>
-                    </div>
+                    {artist.born}</div></div></Link>
+                    
                 ))}
                 </ul>
             </div>

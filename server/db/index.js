@@ -16,6 +16,7 @@ const Photographs = require('./photographs')
 // Example:
 //
 Photographs.belongsTo(Artists);
+Artists.hasMany(Photographs);
 
 module.exports = {
   // Include your models in this exports object as well!

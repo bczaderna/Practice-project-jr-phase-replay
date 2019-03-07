@@ -16,28 +16,14 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    let singleArtist = await Artists.findById(req.params.id);
+    let singleArtist = await Artists.findById(req.params.id, {
+      include: [{model: Photographs}]
+    });
     res.send(singleArtist);
   } catch (err) {
     next(err);
   }
 })
 
-// router.get('/:id', async (req, res, next) => {
-//   try {
-//     let singleArtist = await Artists.findById(req.params.id);
-
-//     if(singleArtist) {
-//       const singleArtistAndPhotographs = await Artists.findAll({
-//         where: {id: req.params.id},
-//         include: [{model: Photographs}]
-//       })
-//       res.send(singleArtistAndPhotographs);
-//     }
-    
-//   } catch (err) {
-//     next(err)
-//   }
-// })
 
 module.exports = router

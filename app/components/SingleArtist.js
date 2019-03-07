@@ -6,7 +6,7 @@ class SingleArtist extends Component {
 
     componentDidMount() {
         console.log('single artist mounted')
-        console.log(this.props.state, 'what is state')
+        console.log(this.props.match.params.id, 'what is the params id')
         this.props.getOneArtist(this.props.match.params.id)
     }
 
@@ -16,7 +16,8 @@ class SingleArtist extends Component {
             <div>
                 {
                     <ul>
-                        <li>hello?</li>
+                        <li>{this.props.singleArtist.firstName}</li>
+                        <li>{this.props.singleArtist.born}</li>
                     </ul>
                 }
             </div>
