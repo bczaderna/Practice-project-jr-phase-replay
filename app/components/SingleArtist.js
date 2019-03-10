@@ -5,19 +5,25 @@ import {getOneArtist} from '../redux/action-and-thunk-creators'
 class SingleArtist extends Component {
 
     componentDidMount() {
-        console.log('single artist mounted')
-        console.log(this.props.match.params.id, 'what is the params id')
+        
         this.props.getOneArtist(this.props.match.params.id)
     }
 
+
+
     render() {
+        let artist = this.props.singleArtist;
 
         return (
             <div>
                 {
                     <ul>
-                        <li>{this.props.singleArtist.firstName}</li>
-                        <li>{this.props.singleArtist.born}</li>
+                        <li>{artist.firstName + ' ' + artist.lastName}</li>
+                        <li>{artist.born}</li>
+                        <li>
+                         {artist.photographs ? artist.photographs[0].name : null}
+                        </li>
+                        
                     </ul>
                 }
             </div>

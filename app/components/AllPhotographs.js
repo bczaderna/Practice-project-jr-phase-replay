@@ -17,28 +17,24 @@ class AllPhotographs extends Component {
     }
 
     render() {
-        console.log(this.props.photographs, 'photographs obj')
+        
         return (
-            
             <div>
                 <h1 className = 'section-title'>All Photographs:</h1>
                 <ul className='container'>
                 {this.props.photographs.map(photograph => (
-                    
-                    <Link to={`/photographs/${photograph.id}`}>
-                    <div className='photograph' key={photograph.id}>
-                    {photograph.date}</div>
-                    <div className='photograph' key= {photograph.id}>
-                    {photograph.place}</div>
-                    <div className='photograph'>
-                    {photograph.price}</div>
-                    <img src={photograph.imageUrl}/>
-                    <div className='photograph' key={photograph.id}>
-                    {photograph.size}</div>
-                    <div className='photograph' key={photograph.id}>
-                    {photograph.size}</div></Link>
-                    
-                    
+                    <div key={photograph.id}>
+                        <Link to={`/photographs/${photograph.id}`}>
+                        <div className='photograph' key={photograph.id}>
+                        {photograph.date}</div>
+                        <div className='photograph' key= {photograph.id}>
+                        {photograph.place}</div>
+                        <div className='photograph'>
+                        {photograph.price}</div>
+                        {/* <img src={photograph.imageUrl}/> */}
+                        <div className='photograph' key={photograph.id}>
+                        {photograph.size}</div></Link> 
+                    </div>
                 ))}
                 </ul>  
             </div>

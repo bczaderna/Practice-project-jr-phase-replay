@@ -40,6 +40,14 @@ const Photographs = require('./server/db/photographs')
     size: 3.5,
     artistId: 3,
   }, {
+    date: 1954,
+    name: 'The Tetons and the Snake River',
+    place: 'USA',
+    price: 400,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Adams_The_Tetons_and_the_Snake_River.jpg',
+    size: 5.0,
+    artistId: 3
+  },{
     date: 1935,
     name: 'Allie Mae Boroughs',
     place: 'USA',
@@ -47,6 +55,13 @@ const Photographs = require('./server/db/photographs')
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Allie_Mae_Burroughs_print.jpg/220px-Allie_Mae_Burroughs_print.jpg',
     size: 3.5,
     artistId: 1,
+  }, {
+    date: 1941,
+    name: 'Penny',
+    place: 'USA',
+    price: 500,
+    imageUrl: 'https://timedotcom.files.wordpress.com/2012/08/moma_weap_i_10.jpg?quality=85&w=838',
+    artistId: 1
   }, {
     date: 1937,
     name: 'Kentucky Flood',
@@ -56,6 +71,21 @@ const Photographs = require('./server/db/photographs')
     size: 4.5,
     artistId: 2,
   }, {
+    date: 1943,
+    name: 'The Train',
+    place: 'USA',
+    price: 350,
+    imageUrl: 'http://www.yellowdoorartmarket.com/.a/6a0134868a53d2970c01bb09d71022970d-800wi',
+    size: 6.0,
+    artistId: 2
+  }, {
+    date: 1942,
+    name: 'Fishing',
+    place: 'USA',
+    price: 350,
+    imageUrl: 'http://redfilmnoir.weebly.com/uploads/5/9/0/3/5903732/henry22_1.jpg',
+    artistId: 4
+  },{
     date: 1904,
     name: 'New Mexico',
     place: 'USA',
@@ -71,6 +101,14 @@ const Photographs = require('./server/db/photographs')
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Andr%C3%A9_Kert%C3%A9sz_1984_Bp.jpg',
     size: 3.5,
     artistId: 5,
+  }, {
+    date: 1980,
+    name: 'Reading',
+    place: 'USA',
+    price: 500,
+    imageUrl: 'https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2009/7/22/1248271920994/Andre-Kertesz-young-man-s-004.jpg?width=700&quality=85&auto=format&fit=max&s=ee7c65f10529430a1f89fba63d262476',
+    size: 4.0,
+    artistId: 5
   }]
 
 const seed = async () => {

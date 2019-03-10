@@ -5,20 +5,20 @@ import {getOnePhotograph} from '../redux/action-and-thunk-creators'
 class SinglePhotograph extends Component {
 
     componentDidMount() {
-        console.log('single photo mounted')
+        
         this.props.getOnePhotograph(this.props.match.params.id)
     }
 
     render() {
-        console.log(this.props.singlePhotograph.artist, 'what is eager loaded artist info')
+        let photograph = this.props.singlePhotograph;
         return (
             <div>
                 {
                     <ul>
-                        <li>{this.props.singlePhotograph.date}</li>
-                        <li>{this.props.singlePhotograph.name}</li>
-                        {/* <li>{this.props.singlePhotograph.artist.born}</li> */}
-                        <li><img src={this.props.singlePhotograph.imageUrl} /></li>
+                        <li>{photograph.date}</li>
+                        <li>{photograph.name}</li>
+                        <li>{photograph.artist ? photograph.artist.id : null}</li>
+                        <li><img src={photograph.imageUrl} /></li>
                     </ul>
                 }
             </div>

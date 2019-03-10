@@ -16,12 +16,43 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    let singleArtist = await Artists.findById(req.params.id, {
+    let singleArtist = await Artists.findByPk(req.params.id, {
       include: [{model: Photographs}]
     });
     res.send(singleArtist);
   } catch (err) {
     next(err);
+  }
+})
+
+router.post('/artists/form', async (req, res, next) => {
+  try {
+      let newArtist = await Artists.create(req.body);
+      
+      res.json(newArtist);
+
+  } catch (error){
+      next(error)
+  }
+})
+
+router.delete('/api/artists/:id', async (req, res, next) => {
+  try {
+      let artistToDelete = await Artists.findById(req.params.id);
+      
+      if (!artistToDelete) {
+          const err = new Error('Not found')
+          err.status = 404
+          return next(err);
+      }
+
+      else {
+          await Artists.destroy({ where: {id: req.params.id}});
+      
+          res.status(204).send();
+      }
+  } catch (error) {
+      next(error);
   }
 })
 
