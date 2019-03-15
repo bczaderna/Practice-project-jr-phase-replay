@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GOT_ALL_PHOTOGRAPHS, GOT_ALL_ARTISTS, GOT_ONE_ARTIST, GOT_ONE_PHOTOGRAPH, ADDED_PHOTOGRAPH, ADDED_ARTIST } from './actions'
+import { GOT_ALL_PHOTOGRAPHS, GOT_ALL_ARTISTS, GOT_ONE_ARTIST, GOT_ONE_PHOTOGRAPH, ADDED_PHOTOGRAPH, ADDED_ARTIST, REMOVED_PHOTOGRAPH, REMOVED_ARTIST } from './actions'
 
 
 //ACTION CREATORS
@@ -26,6 +26,13 @@ export const addedPhotograph = photograph => {
     }
 }
 
+export const removedPhotograph = photographId => {
+    return {
+        type: REMOVED_PHOTOGRAPH,
+        photograph: photographId
+    }
+}
+
 
 //artists
 export const gotAllArtists = (artistsArr) => {
@@ -46,6 +53,13 @@ export const addedArtist = artist => {
     return {
         type: ADDED_ARTIST,
         artist: artist
+    }
+}
+
+export const removedArtist = artistId => {
+    return {
+        type: REMOVED_ARTIST,
+        artist: artistId
     }
 }
 
@@ -77,6 +91,13 @@ export const addPhotograph = (photographInfo) => {
     }
 }
 
+export const removePhotograph = (photographId) => {
+    return async dispatch => {
+    await axios.delete(`/api/photographs/${photographId}`);
+    dispatch(removedPhotograph(photographId)); 
+    }
+}
+
 
 //artists
 export const getAllArtists = () => {
@@ -97,8 +118,17 @@ export const getOneArtist = (artistId) => {
 
 export const addArtist = (artistInfo) => {
     return async dispatch => {
+        console.log(artistInfo, 'artist info')
         const response = await axios.post('/api/artists/form', artistInfo);
         const newArtist = response.data;
+        console.log(newArtist, 'new artist')
         dispatch(addedArtist(newArtist));
+    }
+}
+
+export const removeArtist = (artistId) => {
+    return async dispatch => {
+    await axios.delete(`/api/artists/${artistId}`);
+    dispatch(removedArtist(artistId)); 
     }
 }

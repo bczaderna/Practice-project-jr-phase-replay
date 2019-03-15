@@ -12,6 +12,9 @@ const Navbar = () => {
         <Link to="/photographs">See All Photographs</Link>
         <br />
         <Link to="/artists">See All Artists</Link>
+          <Link to='/photographs/form'>Add A Photograph</Link>
+          <br />
+          <Link to='/artists/form'>Add An Artist</Link>
       </ul>
     </nav>
   );

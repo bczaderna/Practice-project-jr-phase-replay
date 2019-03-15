@@ -27,10 +27,11 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/photographs/form', async (req, res, next) => {
+router.post('/form', async (req, res, next) => {
   try {
+      console.log(req.body, 'req body')
       let newPhotograph = await Photographs.create(req.body);
-      
+      console.log(newPhotograph, 'new photograph')
       res.json(newPhotograph);
 
   } catch (error){
@@ -38,7 +39,7 @@ router.post('/photographs/form', async (req, res, next) => {
   }
 })
 
-router.delete('/api/photographs/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
       let photographToDelete = await Photographs.findById(req.params.id);
       

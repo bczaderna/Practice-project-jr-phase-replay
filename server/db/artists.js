@@ -9,11 +9,11 @@ module.exports = db.define("artists", {
   },
   lastName: {
     type: Sequelize.STRING,
-    defaultValue: ""
+    // defaultValue: ""
   },
   born: {
-    type: Sequelize.STRING,
-    // allowNull: false
+    type: Sequelize.INTEGER,
+    // allowNull: true
   }
   
 });

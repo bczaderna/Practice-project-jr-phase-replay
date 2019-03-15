@@ -25,8 +25,11 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/artists/form', async (req, res, next) => {
+router.post('/form', async (req, res, next) => {
   try {
+      console.log('***')
+      // req.body.born = parseInt(req.body.born, 10)
+      console.log(req.body, 'req body after parsint')
       let newArtist = await Artists.create(req.body);
       
       res.json(newArtist);
@@ -36,7 +39,7 @@ router.post('/artists/form', async (req, res, next) => {
   }
 })
 
-router.delete('/api/artists/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
       let artistToDelete = await Artists.findById(req.params.id);
       

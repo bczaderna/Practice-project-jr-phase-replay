@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {addPhotograph} from '../store'
+import {addPhotograph} from '../redux/action-and-thunk-creators'
 
 class NewPhotographForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      born: ''
+      title: '',
+      price: '',
+      size: '',
+      place: '',
+      image: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,15 +26,17 @@ class NewPhotographForm extends Component {
     event.preventDefault();
     this.props.addPhotograph(this.state);
     this.setState({
-      firstName: '',
-      lastName: '',
-      born: ''
+        title: '',
+        price: '',
+        size: '',
+        place: '',
+        image: '',
     });
   }
 
 
   render() {
-    
+    console.log(this.props.photographs, 'photographs on state')
     return (
       <form onSubmit={this.handleSubmit}>
       <span>Add a Photograph:</span>
@@ -40,9 +44,9 @@ class NewPhotographForm extends Component {
           Title:
           <input
             type="text"
-            name="Title"
+            name="title"
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.title}
           />
         </label>
 
@@ -50,9 +54,9 @@ class NewPhotographForm extends Component {
           Price
           <input
             type="text"
-            name="Price"
+            name="price"
             onChange={this.handleChange}
-            value={this.state.address}
+            value={this.state.price}
           />
         </label>
 
@@ -60,9 +64,9 @@ class NewPhotographForm extends Component {
           Size:
           <input
             type="text"
-            name="Size"
+            name="size"
             onChange={this.handleChange}
-            value={this.state.address}
+            value={this.state.size}
           />
         </label>
 
@@ -70,9 +74,9 @@ class NewPhotographForm extends Component {
           Place:
           <input
             type="text"
-            name="Place"
+            name="place"
             onChange={this.handleChange}
-            value={this.state.address}
+            value={this.state.place}
           />
         </label>
 
@@ -80,9 +84,9 @@ class NewPhotographForm extends Component {
           Image:
           <input
             type="text"
-            name="Image"
+            name="image"
             onChange={this.handleChange}
-            value={this.state.address}
+            value={this.state.image}
           />
         </label>
 

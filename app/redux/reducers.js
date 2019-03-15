@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 import { gotAllPhotographs, gotAllArtists } from './action-and-thunk-creators'
-import { GOT_ALL_ARTISTS, GOT_ALL_PHOTOGRAPHS, GOT_ONE_PHOTOGRAPH, GOT_ONE_ARTIST, ADDED_ARTIST, ADDED_PHOTOGRAPH} from './actions'
+import { GOT_ALL_ARTISTS, GOT_ALL_PHOTOGRAPHS, GOT_ONE_PHOTOGRAPH, GOT_ONE_ARTIST, ADDED_ARTIST, ADDED_PHOTOGRAPH, REMOVED_PHOTOGRAPH, REMOVED_ARTIST} from './actions'
 
 const initialState = {
     photographs: [],
@@ -21,6 +21,16 @@ const photographsReducer = (state = initialState, action) => {
         return {
             ...state,
             singlePhotograph: action.singlePhotograph
+        }
+        case ADDED_PHOTOGRAPH:
+        return {
+            ...state,
+            photographs: [...state.photographs, action.photograph]
+        }
+        case REMOVED_PHOTOGRAPH:
+        return {
+            ...state,
+            photographs: state.photographs.filter(photograph => photograph.id !== action.photograph)
         }
         default:
         return state
@@ -45,6 +55,11 @@ const artistsReducer = (state = initialState, action) => {
         return {
             ...state,
             artists: [...state.artists, action.artist]
+        }
+        case REMOVED_ARTIST:
+        return {
+            ...state,
+            artists: state.artists.filter(artist => artist.id != action.artist)
         }
         default: return state
     }

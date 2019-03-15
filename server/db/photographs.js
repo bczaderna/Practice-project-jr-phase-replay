@@ -3,11 +3,11 @@ const db = require("./database");
 
 module.exports = db.define("photographs", {
   date: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     // allowNull: false,
     // notEmpty: true
   },
-  name: {
+  title: {
     type: Sequelize.STRING,
   },
   place: {
@@ -26,8 +26,5 @@ module.exports = db.define("photographs", {
   },
   size: {
     type: Sequelize.INTEGER,
-    validate: {
-      //max size here
-    },
   }
 });

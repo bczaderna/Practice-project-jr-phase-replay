@@ -5,6 +5,8 @@ import AllArtists from "./AllArtists";
 import SinglePhotograph from "./SinglePhotograph";
 import SingleArtist from "./SingleArtist";
 import Navbar from "./Navbar";
+import NewArtistForm from './NewArtistForm';
+import NewPhotographForm from './NewPhotographForm';
 import NotFound from "./NotFound";
 
 const Root = () => {
@@ -39,6 +41,8 @@ const Root = () => {
               path="/photographs/:id(\d+)"
               component={SinglePhotograph}
             />
+            <Route exact path="/artists/form" component={NewArtistForm}/>
+            <Route exact path="/photographs/form" component={NewPhotographForm}/>
             <Route component={NotFound} />
           </Switch>
         </main>

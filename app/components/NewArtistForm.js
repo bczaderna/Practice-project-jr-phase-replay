@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {addArtist} from '../store'
+import {addArtist} from '../redux/action-and-thunk-creators'
 
 class NewArtistForm extends Component {
   constructor(props) {
@@ -15,9 +15,11 @@ class NewArtistForm extends Component {
   }
 
   handleChange(event) {
+    console.log(this.state, 'state')
     this.setState({
       [event.target.name]: event.target.value,
     });
+
   }
 
   handleSubmit(event) {
@@ -42,7 +44,7 @@ class NewArtistForm extends Component {
             type="text"
             name="firstName"
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.firstName}
           />
         </label>
 
@@ -52,7 +54,7 @@ class NewArtistForm extends Component {
             type="text"
             name="lastName"
             onChange={this.handleChange}
-            value={this.state.address}
+            value={this.state.lastName}
           />
         </label>
 
@@ -60,9 +62,9 @@ class NewArtistForm extends Component {
           Born:
           <input
             type="text"
-            name="birth year"
+            name="born"
             onChange={this.handleChange}
-            value={this.state.address}
+            value={this.state.born}
           />
         </label>
 
