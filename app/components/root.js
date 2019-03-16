@@ -11,10 +11,10 @@ import NotFound from "./NotFound";
 
 const Root = () => {
   //alternative image: https://pbs.twimg.com/media/DS9ii4bXkAE3WgB.jpg
-  
+
   return (
     <BrowserRouter>
-      <div>
+      <div class='container'>
         <nav className='link'>
           <Navbar />
         </nav>

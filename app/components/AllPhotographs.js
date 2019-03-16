@@ -29,19 +29,19 @@ class AllPhotographs extends Component {
             <div key={photograph.id}>
               <Link to={`/photographs/${photograph.id}`}>
                 <div className="photograph">Title:{photograph.title}</div>
-                <div className="photograph">Date:{photograph.date}</div>
-                <div className="photograph">Place:{photograph.place}</div>
-
-                {/* <img src={photograph.imageUrl}/> */}
-                <div className="photograph">Size:{photograph.size}</div>
+                {/* <div className="photograph">Artist:{photograph.artist}</div> */}
+                <img src={photograph.imageUrl} />
               </Link>
-              <button className='label'
+              <button
+                className="label"
                 onClick={() => {
                   this.deleteItem(photograph.id);
                 }}
               >
                 remove
               </button>
+              <br />
+              <br/>
             </div>
           ))}
         </ul>

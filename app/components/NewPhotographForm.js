@@ -92,7 +92,7 @@ class NewPhotographForm extends Component {
             value={this.state.image}
           />
         </label><br/>
-        <br/>
+        <br></br>
 
 
         <button type="submit" className='label'>Submit New Photograph</button>
