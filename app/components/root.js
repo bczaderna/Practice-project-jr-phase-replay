@@ -10,11 +10,12 @@ import NewPhotographForm from './NewPhotographForm';
 import NotFound from "./NotFound";
 
 const Root = () => {
+  //alternative image: https://pbs.twimg.com/media/DS9ii4bXkAE3WgB.jpg
+  
   return (
     <BrowserRouter>
       <div>
         <nav className='link'>
-          Welcome!
           <Navbar />
         </nav>
         <main>
@@ -28,10 +29,12 @@ const Root = () => {
                   <div id='welcome'>
                     <h1>Welcome to the Photography Center!</h1>
                     <br />
+                    <img src='https://www.whitehotmagazine.com/UserFiles/image/2010/Henri%20Cartier-Bresson/bresson_yugoslavia300.jpg'></img>
                   </div>
                 );
               }}
             />
+        
 
             <Route exact path="/photographs" component={AllPhotographs} />
             <Route exact path="/artists" component={AllArtists} />

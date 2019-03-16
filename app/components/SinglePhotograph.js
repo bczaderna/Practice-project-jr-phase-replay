@@ -12,13 +12,14 @@ class SinglePhotograph extends Component {
     render() {
         let photograph = this.props.singlePhotograph;
         return (
-            <div>
+            <div className='photograph'>
                 {
                     <ul>
-                        <li>Title:{photograph.title}</li>
                         <li>Artist:{photograph.artist ? photograph.artist.firstName + ' ' + photograph.artist.lastName : null}</li>
+                        <li>Title:{photograph.title}</li>
                         <li>Date:{photograph.date}</li>
-                        
+                        <br/>
+                        <br/>
                         <li><img src={photograph.imageUrl} /></li>
                     </ul>
                 }

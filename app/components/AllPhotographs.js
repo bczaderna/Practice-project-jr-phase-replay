@@ -35,7 +35,7 @@ class AllPhotographs extends Component {
                 {/* <img src={photograph.imageUrl}/> */}
                 <div className="photograph">Size:{photograph.size}</div>
               </Link>
-              <button
+              <button className='label'
                 onClick={() => {
                   this.deleteItem(photograph.id);
                 }}

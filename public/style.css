@@ -26,7 +26,7 @@
   }
 
   .link {
-    color: rgb(184, 179, 179);
+    color: rgb(146, 129, 129);
     font-family: "Courier New", Courier, monospace;
 
   }
@@ -35,12 +35,18 @@
     color: rgb(146, 129, 129);
     font-family: "Courier New", Courier, monospace;
     font-size: 20px;
+    margin-left:20px;
+  }
+
+  .form {
+    text-indent: 20px
   }
 
   #welcome{
     color: rgb(146, 129, 129);
     font-family: "Courier New", Courier, monospace;
     font-size: 15px;
+    align-content: center
   }
   
   main {
@@ -50,10 +56,45 @@
     justify-content: center;
   }
 
+  button {
+    font-size: 100%;
+    color: rgb(146, 129, 129);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    border: 0;
+    padding: 0;
+    display: flex;
+    align-content: flex-end;
+    border: 0;
+    border-radius: 0.10rem;
+    line-height: .80;
+    padding: 0.15rem 0.5rem;
+    margin: 0.15rem;
+    margin-left:20px;
+  }
+  
+  label {
+    color: rgb(146, 129, 129);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    display: flex;
+    align-content: flex-start
+  }
+
   .photograph {
     height: auto;
     width: auto;
+    color: rgb(146, 129, 129);
+    font-family: "Courier New", Courier, monospace;
+
     /* border:  */
+  }
+
+  .artist{
+    height: auto;
+    width: auto;
+    color: rgb(146, 129, 129);
+    font-family: "Courier New", Courier, monospace;
   }
 
   .tab {

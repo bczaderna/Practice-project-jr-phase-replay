@@ -35,7 +35,7 @@ class AllArtists extends Component {
                   </div>
                 </div>
               </Link>
-              <button
+              <button className='button'
                 onClick={() => {
                   this.deleteItem(artist.id);
                 }}

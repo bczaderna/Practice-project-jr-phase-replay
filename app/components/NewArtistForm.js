@@ -36,10 +36,12 @@ class NewArtistForm extends Component {
   render() {
     
     return (
-      <form onSubmit={this.handleSubmit}>
-      <span>Add an Artist:</span><br>
+      <form className='form' onSubmit={this.handleSubmit}>
+      <br></br>
+      <span className='section-title'>Add an Artist:</span><br>
       </br>
-        <label>
+      <br/>
+        <label className='label'>
           First Name:
           <input
             type="text"
@@ -47,9 +49,9 @@ class NewArtistForm extends Component {
             onChange={this.handleChange}
             value={this.state.firstName}
           />
-        </label>
+        </label><br/>
 
-        <label>
+        <label className='label'>
           Last Name:
           <input
             type="text"
@@ -57,9 +59,9 @@ class NewArtistForm extends Component {
             onChange={this.handleChange}
             value={this.state.lastName}
           />
-        </label>
+        </label><br/>
 
-        <label>
+        <label className='label'>
           Born:
           <input
             type="text"
@@ -67,10 +69,11 @@ class NewArtistForm extends Component {
             onChange={this.handleChange}
             value={this.state.born}
           />
-        </label>
+        </label><br/>
+        <br/>
 
 
-        <button type="submit">Submit New Artist</button>
+        <button type="submit" className='label'>Submit New Artist</button>
       </form>
       
     );

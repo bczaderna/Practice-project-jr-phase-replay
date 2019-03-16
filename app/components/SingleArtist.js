@@ -14,9 +14,9 @@ class SingleArtist extends Component {
       <div>
         {
           <div>
-            <div>Name: {artist.firstName + " " + artist.lastName}</div>
-            <div>Born: {artist.born}</div>
-            <div>
+            <div className='artist'>Name: {artist.firstName + " " + artist.lastName}</div>
+            <div className='artist'>Born: {artist.born}</div>
+            <div className='artist'>
               Photographs:
               {artist.photographs
                 ? artist.photographs.map(photograph => {

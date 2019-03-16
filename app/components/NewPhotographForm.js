@@ -36,11 +36,14 @@ class NewPhotographForm extends Component {
 
 
   render() {
-    console.log(this.props.photographs, 'photographs on state')
+   
     return (
-      <form onSubmit={this.handleSubmit}>
-      <span>Add a Photograph:</span>
-        <label>
+      <form className='form' onSubmit={this.handleSubmit}>
+      <br></br>
+      <span className='section-title'>Add a Photograph:</span><br>
+      </br>
+      <br/>
+        <label className='label'>
           Title:
           <input
             type="text"
@@ -48,9 +51,9 @@ class NewPhotographForm extends Component {
             onChange={this.handleChange}
             value={this.state.title}
           />
-        </label>
+        </label><br/>
 
-        <label>
+        <label className='label'>
           Price
           <input
             type="text"
@@ -58,9 +61,9 @@ class NewPhotographForm extends Component {
             onChange={this.handleChange}
             value={this.state.price}
           />
-        </label>
+        </label><br/>
 
-        <label>
+        <label className='label'>
           Size:
           <input
             type="text"
@@ -68,9 +71,9 @@ class NewPhotographForm extends Component {
             onChange={this.handleChange}
             value={this.state.size}
           />
-        </label>
+        </label><br/>
 
-        <label>
+        <label className='label'>
           Place:
           <input
             type="text"
@@ -78,9 +81,9 @@ class NewPhotographForm extends Component {
             onChange={this.handleChange}
             value={this.state.place}
           />
-        </label>
+        </label><br/>
 
-        <label>
+        <label className='label'>
           Image:
           <input
             type="text"
@@ -88,10 +91,11 @@ class NewPhotographForm extends Component {
             onChange={this.handleChange}
             value={this.state.image}
           />
-        </label>
+        </label><br/>
+        <br/>
 
 
-        <button type="submit">Submit New Photograph</button>
+        <button type="submit" className='label'>Submit New Photograph</button>
       </form>
       
     );
