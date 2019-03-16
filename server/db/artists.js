@@ -3,17 +3,12 @@ const db = require("./database");
 
 module.exports = db.define("artists", {
   firstName: {
-    type: Sequelize.STRING,
-    // allowNull: false,
-    // notEmpty: true
+    type: Sequelize.STRING
   },
   lastName: {
-    type: Sequelize.STRING,
-    // defaultValue: ""
+    type: Sequelize.STRING
   },
   born: {
-    type: Sequelize.INTEGER,
-    // allowNull: true
+    type: Sequelize.INTEGER
   }
-  
 });

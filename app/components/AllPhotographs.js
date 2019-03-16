@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import { getAllPhotographs, removePhotograph } from "../redux/action-and-thunk-creators";
-//double check on .store path...
+import {
+  getAllPhotographs,
+  removePhotograph
+} from "../redux/action-and-thunk-creators";
 
 class AllPhotographs extends Component {
   constructor(props) {
@@ -11,7 +13,6 @@ class AllPhotographs extends Component {
   }
 
   componentDidMount() {
-    console.log("here");
     this.props.getAllPhotographs();
   }
 
@@ -27,17 +28,12 @@ class AllPhotographs extends Component {
           {this.props.photographs.map(photograph => (
             <div key={photograph.id}>
               <Link to={`/photographs/${photograph.id}`}>
-                <div className="photograph" key={photograph.id}>
-                  {photograph.date}
-                </div>
-                <div className="photograph" key={photograph.id}>
-                  {photograph.place}
-                </div>
-                <div className="photograph">{photograph.price}</div>
+                <div className="photograph">Title:{photograph.title}</div>
+                <div className="photograph">Date:{photograph.date}</div>
+                <div className="photograph">Place:{photograph.place}</div>
+
                 {/* <img src={photograph.imageUrl}/> */}
-                <div className="photograph" key={photograph.id}>
-                  {photograph.size}
-                </div>
+                <div className="photograph">Size:{photograph.size}</div>
               </Link>
               <button
                 onClick={() => {

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import { getAllArtists, removeArtist } from "../redux/action-and-thunk-creators";
+import {
+  getAllArtists,
+  removeArtist
+} from "../redux/action-and-thunk-creators";
 
 class AllArtists extends Component {
   constructor(props) {
@@ -10,7 +13,6 @@ class AllArtists extends Component {
   }
 
   componentDidMount() {
-    console.log("hello?");
     this.props.getAllArtists();
   }
 
@@ -28,7 +30,7 @@ class AllArtists extends Component {
               <Link to={`/artists/${artist.id}`}>
                 <div className="artist" key={artist.id}>
                   {artist.firstName + " " + artist.lastName}
-                  <div className="artist" key={artist.id}>
+                  <div className="artist" key={artist.id}>b.
                     {artist.born}
                   </div>
                 </div>

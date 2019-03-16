@@ -13,7 +13,7 @@ const Root = () => {
   return (
     <BrowserRouter>
       <div>
-        <nav>
+        <nav className='link'>
           Welcome!
           <Navbar />
         </nav>
@@ -25,7 +25,7 @@ const Root = () => {
               strict
               render={() => {
                 return (
-                  <div>
+                  <div id='welcome'>
                     <h1>Welcome to the Photography Center!</h1>
                     <br />
                   </div>

@@ -37,7 +37,8 @@ class NewArtistForm extends Component {
     
     return (
       <form onSubmit={this.handleSubmit}>
-      <span>Add an Artist:</span>
+      <span>Add an Artist:</span><br>
+      </br>
         <label>
           First Name:
           <input

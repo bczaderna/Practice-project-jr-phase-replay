@@ -1,63 +1,56 @@
-'use strict'
+"use strict";
 
-const router = require('express').Router()
-const Artists = require('../db/artists')
-const Photographs = require('../db/photographs')
+const router = require("express").Router();
+const Artists = require("../db/artists");
+const Photographs = require("../db/photographs");
 
-
-router.get('/', async (req, res, next) => {
-   try {
+router.get("/", async (req, res, next) => {
+  try {
     let allArtists = await Artists.findAll();
     res.send(allArtists);
-   } catch (err) {
-     next(err);
-   }
-})
+  } catch (err) {
+    next(err);
+  }
+});
 
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     let singleArtist = await Artists.findByPk(req.params.id, {
-      include: [{model: Photographs}]
+      include: [{ model: Photographs }]
     });
     res.send(singleArtist);
   } catch (err) {
     next(err);
   }
-})
+});
 
-router.post('/form', async (req, res, next) => {
+router.post("/form", async (req, res, next) => {
   try {
-      console.log('***')
-      // req.body.born = parseInt(req.body.born, 10)
-      console.log(req.body, 'req body after parsint')
-      let newArtist = await Artists.create(req.body);
-      
-      res.json(newArtist);
+    
+    let newArtist = await Artists.create(req.body);
 
-  } catch (error){
-      next(error)
-  }
-})
-
-router.delete('/:id', async (req, res, next) => {
-  try {
-      let artistToDelete = await Artists.findById(req.params.id);
-      
-      if (!artistToDelete) {
-          const err = new Error('Not found')
-          err.status = 404
-          return next(err);
-      }
-
-      else {
-          await Artists.destroy({ where: {id: req.params.id}});
-      
-          res.status(204).send();
-      }
+    res.json(newArtist);
   } catch (error) {
-      next(error);
+    next(error);
   }
-})
+});
 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    let artistToDelete = await Artists.findById(req.params.id);
 
-module.exports = router
+    if (!artistToDelete) {
+      const err = new Error("Not found");
+      err.status = 404;
+      return next(err);
+    } else {
+      await Artists.destroy({ where: { id: req.params.id } });
+
+      res.status(204).send();
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+module.exports = router;

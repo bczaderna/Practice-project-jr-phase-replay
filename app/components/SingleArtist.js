@@ -1,47 +1,53 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import {getOneArtist} from '../redux/action-and-thunk-creators'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getOneArtist } from "../redux/action-and-thunk-creators";
 
 class SingleArtist extends Component {
+  componentDidMount() {
+    this.props.getOneArtist(this.props.match.params.id);
+  }
 
-    componentDidMount() {
-        
-        this.props.getOneArtist(this.props.match.params.id)
-    }
-
-
-
-    render() {
-        let artist = this.props.singleArtist;
-
-        return (
+  render() {
+    let artist = this.props.singleArtist;
+    
+    return (
+      <div>
+        {
+          <div>
+            <div>Name: {artist.firstName + " " + artist.lastName}</div>
+            <div>Born: {artist.born}</div>
             <div>
-                {
-                    <ul>
-                        <li>{artist.firstName + ' ' + artist.lastName}</li>
-                        <li>{artist.born}</li>
-                        <li>
-                         {artist.photographs ? artist.photographs[0].name : null}
-                        </li>
-                        
-                    </ul>
-                }
+              Photographs:
+              {artist.photographs
+                ? artist.photographs.map(photograph => {
+                    return (
+                      <ul key={photograph.id}>
+                        <li className='tab'>{photograph.title}</li>
+                      </ul>
+                    );
+                  })
+                : null}
             </div>
-        )
-
-    }
+          </div>
+        }
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        singleArtist: state.artistsReducer.singleArtist
-    }
-}
+const mapStateToProps = state => {
+  return {
+    singleArtist: state.artistsReducer.singleArtist
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getOneArtist: (artistId) => dispatch(getOneArtist(artistId))
-    }
-}
+const mapDispatchToProps = dispatch => {
+  return {
+    getOneArtist: artistId => dispatch(getOneArtist(artistId))
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleArtist)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SingleArtist);

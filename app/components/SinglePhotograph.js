@@ -15,9 +15,10 @@ class SinglePhotograph extends Component {
             <div>
                 {
                     <ul>
-                        <li>{photograph.date}</li>
-                        <li>{photograph.name}</li>
-                        <li>{photograph.artist ? photograph.artist.id : null}</li>
+                        <li>Title:{photograph.title}</li>
+                        <li>Artist:{photograph.artist ? photograph.artist.firstName + ' ' + photograph.artist.lastName : null}</li>
+                        <li>Date:{photograph.date}</li>
+                        
                         <li><img src={photograph.imageUrl} /></li>
                     </ul>
                 }
