@@ -56,6 +56,11 @@ img {
   font-size: 15px;
 }
 
+#welcome-image {
+  max-width: 800px;
+  max-height: 800px;
+}
+
 main {
   align-items: center;
   display: flex;

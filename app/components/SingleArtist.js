@@ -14,6 +14,7 @@ class SingleArtist extends Component {
       <div>
         {
           <div>
+            <br/>
             <div className='artist'>Name: {artist.firstName + " " + artist.lastName}</div>
             <div className='artist'>Born: {artist.born}</div>
             <div className='artist'>

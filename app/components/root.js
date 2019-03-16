@@ -29,7 +29,7 @@ const Root = () => {
                   <div id='welcome'>
                     <h1>Welcome to the Photography Center!</h1>
                     <br />
-                    <img src='https://www.whitehotmagazine.com/UserFiles/image/2010/Henri%20Cartier-Bresson/bresson_yugoslavia300.jpg'></img>
+                    <img id='welcome-image' src='https://www.whitehotmagazine.com/UserFiles/image/2010/Henri%20Cartier-Bresson/bresson_yugoslavia300.jpg'></img>
                   </div>
                 );
               }}
