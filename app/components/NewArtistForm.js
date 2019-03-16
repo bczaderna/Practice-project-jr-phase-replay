@@ -48,7 +48,7 @@ class NewArtistForm extends Component {
             name="firstName"
             onChange={this.handleChange}
             value={this.state.firstName}
-          />
+          required />
         </label><br/>
 
         <label className='label'>
@@ -58,7 +58,7 @@ class NewArtistForm extends Component {
             name="lastName"
             onChange={this.handleChange}
             value={this.state.lastName}
-          />
+          required />
         </label><br/>
 
         <label className='label'>
@@ -68,7 +68,7 @@ class NewArtistForm extends Component {
             name="born"
             onChange={this.handleChange}
             value={this.state.born}
-          />
+          required />
         </label><br/>
         <br/>
 

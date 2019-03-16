@@ -26,7 +26,6 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/form", async (req, res, next) => {
   try {
-    
     let newArtist = await Artists.create(req.body);
 
     res.json(newArtist);
@@ -50,6 +49,22 @@ router.delete("/:id", async (req, res, next) => {
     }
   } catch (error) {
     next(error);
+  }
+});
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    let artistToUpdate = await Artists.findById(req.params.id);
+
+    if (!artistToUpdate) {
+      res.sendStatus(404);
+    } else {
+      const updated = await artistToUpdate.update(req.body);
+
+      res.status(200).send(updated);
+    }
+  } catch (err) {
+    next(err);
   }
 });
 

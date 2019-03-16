@@ -59,6 +59,21 @@ router.delete('/:id', async (req, res, next) => {
   }
 })
 
+router.put("/:id", async (req, res, next) => {
+  try {
+    let photoToUpdate = await Photographs.findById(req.params.id);
+
+    if (!photoToUpdate) {
+      res.sendStatus(404);
+    } else {
+      const updated = await photoToUpdate.update(req.body);
+
+      res.status(200).send(updated);
+    }
+  } catch (err) {
+    next(err);
+  }
+});
 
 
 module.exports = router

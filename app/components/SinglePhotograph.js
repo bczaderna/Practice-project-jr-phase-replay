@@ -14,14 +14,15 @@ class SinglePhotograph extends Component {
         return (
             <div className='photograph'>
                 {
-                    <ul>
-                        <li>Artist:{photograph.artist ? photograph.artist.firstName + ' ' + photograph.artist.lastName : null}</li>
-                        <li>Title:{photograph.title}</li>
-                        <li>Date:{photograph.date}</li>
+                    <div>
+                        <br/>
+                        <div>Artist:{photograph.artist ? photograph.artist.firstName + ' ' + photograph.artist.lastName : null}</div>
+                        <div>Title:{photograph.title}</div>
+                        <div>Date:{photograph.date}</div>
                         <br/>
                         <br/>
-                        <li><img src={photograph.imageUrl} /></li>
-                    </ul>
+                        <div><img src={photograph.imageUrl} /></div>
+                    </div>
                 }
             </div>
         )

@@ -50,7 +50,7 @@ class NewPhotographForm extends Component {
             name="title"
             onChange={this.handleChange}
             value={this.state.title}
-          />
+          required />
         </label><br/>
 
         <label className='label'>
@@ -60,7 +60,7 @@ class NewPhotographForm extends Component {
             name="price"
             onChange={this.handleChange}
             value={this.state.price}
-          />
+          required />
         </label><br/>
 
         <label className='label'>
@@ -70,7 +70,7 @@ class NewPhotographForm extends Component {
             name="size"
             onChange={this.handleChange}
             value={this.state.size}
-          />
+          required />
         </label><br/>
 
         <label className='label'>
@@ -80,7 +80,7 @@ class NewPhotographForm extends Component {
             name="place"
             onChange={this.handleChange}
             value={this.state.place}
-          />
+          required />
         </label><br/>
 
         <label className='label'>
@@ -90,7 +90,7 @@ class NewPhotographForm extends Component {
             name="image"
             onChange={this.handleChange}
             value={this.state.image}
-          />
+          required />
         </label><br/>
         <br></br>
 
