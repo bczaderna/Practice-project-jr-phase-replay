@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getOneArtist } from "../redux/action-and-thunk-creators";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getOneArtist } from '../redux/action-and-thunk-creators';
+import UpdateArtistForm from './UpdateArtistForm';
 
 class SingleArtist extends Component {
   componentDidMount() {
+    console.log(this.props.match.params.id, 'what is the id in singleartist')
     this.props.getOneArtist(this.props.match.params.id);
   }
 
@@ -31,6 +33,7 @@ class SingleArtist extends Component {
             </div>
           </div>
         }
+        <UpdateArtistForm artistId={this.props.match.params.id}/>
       </div>
     );
   }

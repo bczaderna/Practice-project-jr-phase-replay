@@ -7,7 +7,9 @@ import {
   ADDED_PHOTOGRAPH,
   ADDED_ARTIST,
   REMOVED_PHOTOGRAPH,
-  REMOVED_ARTIST
+  REMOVED_ARTIST,
+  UPDATED_PHOTOGRAPH,
+  UPDATED_ARTIST
 } from "./actions";
 
 //ACTION CREATORS
@@ -41,6 +43,13 @@ export const removedPhotograph = photographId => {
   };
 };
 
+export const updatedPhotograph = updated => {
+  return {
+    type: UPDATED_PHOTOGRAPH,
+    photograph: updated
+  };
+};
+
 //artists
 export const gotAllArtists = artistsArr => {
   return {
@@ -66,6 +75,13 @@ export const addedArtist = artist => {
 export const removedArtist = artistId => {
   return {
     type: REMOVED_ARTIST,
+    artist: artistId
+  };
+};
+
+export const updatedArtist = artistId => {
+  return {
+    type: UPDATED_ARTIST,
     artist: artistId
   };
 };
@@ -103,6 +119,14 @@ export const removePhotograph = photographId => {
   };
 };
 
+export const updatePhotograph = (localState, photoId) => {
+  return async dispatch => {
+    let response = await axios.put(`/api/photographs/${photoId}`, localState);
+    let updated = response.data;
+    dispatch(updatedPhotograph(updated));
+  };
+};
+
 //artists
 export const getAllArtists = () => {
   return async dispatch => {
@@ -134,5 +158,14 @@ export const removeArtist = artistId => {
   return async dispatch => {
     await axios.delete(`/api/artists/${artistId}`);
     dispatch(removedArtist(artistId));
+  };
+};
+
+export const updateArtist = (localState, artistId) => {
+  return async dispatch => {
+    let response = await axios.put(`/api/artists/${artistId}`, localState);
+
+    let updated = response.data;
+    dispatch(updatedArtist(updated));
   };
 };

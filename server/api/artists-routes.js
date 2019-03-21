@@ -54,14 +54,14 @@ router.delete("/:id", async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
   try {
-    let artistToUpdate = await Artists.findById(req.params.id);
+    let artistToUpdate = await Artists.findByPk(req.params.id);
 
     if (!artistToUpdate) {
       res.sendStatus(404);
     } else {
       const updated = await artistToUpdate.update(req.body);
 
-      res.status(200).send(updated);
+      res.status(200).json(updated);
     }
   } catch (err) {
     next(err);

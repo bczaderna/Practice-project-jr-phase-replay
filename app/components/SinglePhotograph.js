@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {getOnePhotograph} from '../redux/action-and-thunk-creators'
+import UpdatePhotographForm from './UpdatePhotographForm';
 
 class SinglePhotograph extends Component {
 
@@ -24,6 +25,7 @@ class SinglePhotograph extends Component {
                         <div><img src={photograph.imageUrl} /></div>
                     </div>
                 }
+                <UpdatePhotographForm photoId={this.props.match.params.id}/>
             </div>
         )
 
