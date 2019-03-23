@@ -38,6 +38,8 @@ router.delete("/:id", async (req, res, next) => {
   try {
     let artistToDelete = await Artists.findById(req.params.id);
 
+    // let allArtists = await Artists.findAll();
+
     if (!artistToDelete) {
       const err = new Error("Not found");
       err.status = 404;

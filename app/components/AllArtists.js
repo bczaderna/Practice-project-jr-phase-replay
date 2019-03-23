@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import {
-  getAllArtists,
-  removeArtist
-} from "../redux/action-and-thunk-creators";
+import { removeArtist } from '../redux/allArtistsReducer'
+import { getAllArtists } from '../redux/allArtistsReducer'
 
 class AllArtists extends Component {
   constructor(props) {
@@ -13,6 +11,7 @@ class AllArtists extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props, 'what is props')
     this.props.getAllArtists();
   }
 
@@ -21,6 +20,7 @@ class AllArtists extends Component {
   }
 
   render() {
+    
     return (
       <div>
         <h1 className="section-title">All Artists:</h1>
@@ -52,7 +52,7 @@ class AllArtists extends Component {
 
 const mapStateToProps = state => {
   return {
-    artists: state.artistsReducer.artists
+    artists: state.allArtists
   };
 };
 

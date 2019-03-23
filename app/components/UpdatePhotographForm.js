@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { updatePhotograph } from '../redux/action-and-thunk-creators'
+import { updatePhotograph } from '../redux/allPhotographsReducer'
 
 class UpdatePhotographForm extends Component {
     constructor() {
@@ -22,7 +22,7 @@ class UpdatePhotographForm extends Component {
     }
 
     handleChange(event) {
-        console.log(this.state, 'state')
+        
         this.setState({
           [event.target.name]: event.target.value,
         });
@@ -112,17 +112,19 @@ class UpdatePhotographForm extends Component {
 const mapStateToProps = (state) => {
     
     return {
-      photographs: state.photographsReducer.photographs,
-      singlePhotograph: state.photographsReducer.singlePhotograph
-      //singlephoto...we could get id from here
+      photographs: state.allPhotographs,
+      // singlePhotograph: state.singlePhotograph
     }
   }
  
   const mapDispatchToProps = (dispatch) => {
     return {
-      //photo id from store state, photoInfo from local state
+     
+      updatePhotograph: (localState, photoId) => dispatch(updatePhotograph(localState, photoId)),
 
-      updatePhotograph: (localState, photoId) => dispatch(updatePhotograph(localState, photoId))
+      // updateOnePhotograph: (localState, photoId) => {
+      //   dispatch(updateOnePhotograph(localState, photoId))
+      // }
 
     }
   }

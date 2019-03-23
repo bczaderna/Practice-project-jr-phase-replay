@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getOneArtist } from '../redux/action-and-thunk-creators';
+import { getOneArtist } from '../redux/singleArtistReducer'
 import UpdateArtistForm from './UpdateArtistForm';
 
 class SingleArtist extends Component {
   componentDidMount() {
-    console.log(this.props.match.params.id, 'what is the id in singleartist')
+    
     this.props.getOneArtist(this.props.match.params.id);
+
   }
+
 
   render() {
     let artist = this.props.singleArtist;
-    
+    console.log(artist, 'what is artist')
     return (
+
       <div>
         {
           <div>
@@ -41,7 +44,7 @@ class SingleArtist extends Component {
 
 const mapStateToProps = state => {
   return {
-    singleArtist: state.artistsReducer.singleArtist
+    singleArtist: state.singleArtist
   };
 };
 

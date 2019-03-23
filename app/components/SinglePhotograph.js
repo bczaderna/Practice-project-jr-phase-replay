@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {getOnePhotograph} from '../redux/action-and-thunk-creators'
+import { getOnePhotograph } from '../redux/singlePhotographReducer'
 import UpdatePhotographForm from './UpdatePhotographForm';
 
 class SinglePhotograph extends Component {
@@ -12,6 +12,8 @@ class SinglePhotograph extends Component {
 
     render() {
         let photograph = this.props.singlePhotograph;
+
+        console.log(this.props.singlePhotograph, 'single photo on state??')
         return (
             <div className='photograph'>
                 {
@@ -32,15 +34,15 @@ class SinglePhotograph extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        singlePhotograph: state.photographsReducer.singlePhotograph
+        singlePhotograph: state.singlePhotograph
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        getOnePhotograph: (photographId) => dispatch(getOnePhotograph(photographId))
+        getOnePhotograph: photographId => dispatch(getOnePhotograph(photographId))
     }
 }
 

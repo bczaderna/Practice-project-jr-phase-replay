@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {addArtist} from '../redux/action-and-thunk-creators'
+import {addArtist} from '../redux/allArtistsReducer'
 
 class NewArtistForm extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class NewArtistForm extends Component {
   }
 
   handleChange(event) {
-    console.log(this.state, 'state')
+   
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -24,6 +24,7 @@ class NewArtistForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log(this.state, 'what is local state in new artist form')
     this.props.addArtist(this.state);
     this.setState({
       firstName: '',
@@ -34,7 +35,7 @@ class NewArtistForm extends Component {
 
 
   render() {
-    
+    console.log(this.props, 'what is props in form')
     return (
       <form className='form' onSubmit={this.handleSubmit}>
       <br></br>
@@ -82,9 +83,9 @@ class NewArtistForm extends Component {
 
 //giving the this part of the state from the store to this.props
 const mapStateToProps = (state) => {
-    
+   
     return {
-      artists: state.artistsReducer.artists,
+      artists: state.allArtists,
     }
   }
  

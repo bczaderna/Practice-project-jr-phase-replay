@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {addPhotograph} from '../redux/action-and-thunk-creators'
+import {addPhotograph} from '../redux/allPhotographsReducer'
 
 class NewPhotographForm extends Component {
   constructor(props) {
@@ -106,7 +106,7 @@ class NewPhotographForm extends Component {
 const mapStateToProps = (state) => {
     
     return {
-      photographs: state.photographsReducer.photographs,
+      photographs: state.addPhotograph.photographs,
     }
   }
  

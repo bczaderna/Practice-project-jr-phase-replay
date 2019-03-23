@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { updateArtist } from '../redux/action-and-thunk-creators'
+import { updateArtist } from '../redux/allArtistsReducer'
+import { updateOneArtist } from '../redux/singleArtistReducer'
+
 
 class UpdateArtistForm extends Component {
     constructor(props) {
@@ -9,6 +11,7 @@ class UpdateArtistForm extends Component {
             firstName: '',
             lastName: '',
             born: '',
+            photographs: []
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -16,7 +19,7 @@ class UpdateArtistForm extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.artistId, 'what is artist id???')
+    console.log(this.props.singleArtist, 'what is single artist')
   }
 
   handleChange(event) {
@@ -32,10 +35,13 @@ class UpdateArtistForm extends Component {
 
     this.props.updateArtist(this.state, this.props.artistId);
 
+    this.props.updateOneArtist(this.state, this.props.artistId)
+
+  
     this.setState({
       firstName: '',
       lastName: '',
-      born: ''
+      born: '',
     });
   }
 
@@ -98,15 +104,17 @@ class UpdateArtistForm extends Component {
 const mapStateToProps = (state) => {
     
     return {
-      artists: state.artistsReducer.artists,
-      singleArtist: state.artistsReducer.singleArtist
+      artists: state.allArtists,
+      singleArtist: state.singleArtist
     }
   }
  
   const mapDispatchToProps = (dispatch) => {
     return {
 
-      updateArtist: (localState, artistId) => dispatch(updateArtist(localState, artistId))
+      updateArtist: (localState, artistId) => dispatch(updateArtist(localState, artistId)),
+
+      updateOneArtist: (localState, artistId) => dispatch(updateOneArtist(localState, artistId))
 
     }
   }

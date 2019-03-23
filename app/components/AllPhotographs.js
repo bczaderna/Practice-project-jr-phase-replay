@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import {
-  getAllPhotographs,
-  removePhotograph
-} from "../redux/action-and-thunk-creators";
+import { removePhotograph } from '../redux/allPhotographsReducer'
+import { getAllPhotographs } from '../redux/allPhotographsReducer'
 
 class AllPhotographs extends Component {
   constructor(props) {
@@ -52,7 +50,7 @@ class AllPhotographs extends Component {
 
 const mapStateToProps = state => {
   return {
-    photographs: state.photographsReducer.photographs
+    photographs: state.allPhotographs
   };
 };
 
