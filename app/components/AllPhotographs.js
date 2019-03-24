@@ -42,6 +42,19 @@ class AllPhotographs extends Component {
     });
   }
 
+  // toggleUpdateForm(photoId) {
+  //   if (this.state.photoIdToUpdate === photoId) {
+  //     this.setState({
+  //       showForm: !this.state.showForm,
+  //       photoIdToUpdate: photoId
+  //     })
+  //   } else {
+  //     this.setState({
+  //       photoIdToUpdate: photoId
+  //     })
+  //   }
+  // }
+
   render() {
   if (this.state.loading) return <div>Loading...</div>
     return (
@@ -69,13 +82,14 @@ class AllPhotographs extends Component {
               <button
                 type="button"
                 className="label"
-                onClick={() => {
+                onClick={(e) => {
+                  console.log(e, 'event')
                   this.toggleUpdateForm(photograph.id);
                 }}
               >
                 update
               </button>
-              {this.state.showForm && this.state.photoIdToUpdate ? (
+              {this.state.photoIdToUpdate === photograph.id ? (
                 <UpdatePhotographForm photoId={this.state.photoIdToUpdate} />
               ) : null}
               <br />

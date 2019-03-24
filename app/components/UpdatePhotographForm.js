@@ -6,8 +6,7 @@ class UpdatePhotographForm extends Component {
     constructor() {
         super();
         this.state = {
-            firstName: '',
-            lastName: '',
+            artistId: 0,
             title: '',
             date: '',
             imageUrl: '',
@@ -26,6 +25,8 @@ class UpdatePhotographForm extends Component {
         this.setState({
           [event.target.name]: event.target.value,
         });
+
+        console.log(event.target.name, 'e name')
     
       }
     
@@ -36,8 +37,7 @@ class UpdatePhotographForm extends Component {
         console.log('state is', this.state)
         console.log('id is', this.props.photoId)
         this.setState({
-          firstName: '',
-          lastName: '',
+          artistId: 0,
           title: '',
           date: '',
           imageUrl: ''
@@ -54,25 +54,16 @@ class UpdatePhotographForm extends Component {
         </br>
         <br/>
         <label className='label'>
-          Artist First Name:
+          Artist Id:
           <input
             type="text"
-            name="firstName"
+            name="artistId"
             onChange={this.handleChange}
-            value={this.state.firstName}
+            value={this.state.artistId}
           required />
         </label><br/>
 
-        <label className='label'>
-          Artist Last Name:
-          <input
-            type="text"
-            name="lastName"
-            onChange={this.handleChange}
-            value={this.state.lastName}
-          required />
-        </label><br/>
-
+        
         <label className='label'>
           Title:
           <input
