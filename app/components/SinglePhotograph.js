@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { getOnePhotograph } from '../redux/singlePhotographReducer'
 import UpdatePhotographForm from './UpdatePhotographForm';
+import NotFound from './NotFound'
 
 class SinglePhotograph extends Component {
 
@@ -13,8 +14,8 @@ class SinglePhotograph extends Component {
     render() {
         let photograph = this.props.singlePhotograph;
 
-        console.log(this.props.singlePhotograph, 'single photo on state??')
-        return (
+        
+        return photograph ? (
             <div className='photograph'>
                 {
                     <div>
@@ -29,7 +30,7 @@ class SinglePhotograph extends Component {
                 }
                 <UpdatePhotographForm photoId={this.props.match.params.id}/>
             </div>
-        )
+        ) : <NotFound />
 
     }
 }
