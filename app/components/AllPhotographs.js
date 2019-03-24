@@ -22,8 +22,8 @@ class AllPhotographs extends Component {
     this.toggleUpdateForm = this.toggleUpdateForm.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getAllPhotographs();
+  async componentDidMount() {
+    await this.props.getAllPhotographs();
     this.setState({
       loading: false
     })
