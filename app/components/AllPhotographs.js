@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import { removePhotograph } from '../redux/allPhotographsReducer'
-import { getAllPhotographs } from '../redux/allPhotographsReducer'
+import { UpdatePhotographForm } from './UpdatePhotographForm'
+import { removePhotograph, getAllPhotographs } from '../redux/allPhotographsReducer'
+
 
 class AllPhotographs extends Component {
   constructor(props) {
     super(props);
+
+    // this.state = {
+    //   showForm: false
+    // }
     this.deleteItem = this.deleteItem.bind(this);
+    // this.toggleUpdateForm = this.toggleUpdateForm.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +23,14 @@ class AllPhotographs extends Component {
   deleteItem(photographId) {
     this.props.removePhotograph(photographId);
   }
+
+  // toggleUpdateForm() {
+  //   console.log(this.state, 'what is state before')
+  //   this.setState({
+  //     showForm: !this.state.showForm
+  //   })
+  //   console.log(this.state.showForm, 'has it toggled')
+  // }
 
   render() {
     return (
@@ -30,16 +44,29 @@ class AllPhotographs extends Component {
                 {/* <div className="photograph">Artist:{photograph.artist}</div> */}
                 <img src={photograph.imageUrl} />
               </Link>
+              
               <button
-                className="label"
+                type="button" className="label"
                 onClick={() => {
                   this.deleteItem(photograph.id);
                 }}
               >
                 remove
               </button>
+              
+              { <UpdatePhotographForm />}
+
+              {/* <button
+                type="button"
+                className="label"
+                onClick={() => {
+                  this.toggleUpdateForm()
+                }}
+              >
+                update
+              </button>{this.state.showForm ? <UpdatePhotographForm /> : null} */}
               <br />
-              <br/>
+              <br />
             </div>
           ))}
         </ul>
