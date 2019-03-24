@@ -92,17 +92,20 @@ const allPhotographsReducer = (state = [], action) => {
       return filtered;
 
     case UPDATED_PHOTOGRAPH:
+  
       let updatedArr = [];
       for (let i = 0; i < state.length; i++) {
-        let currentArtist = state[i];
-        if (currentArtist !== state[action.artist]) {
-          updatedArr.push(currentArtist);
+        let currentPhoto = state[i];
+        if (currentPhoto.id !== action.photograph.id) {
+          console.log(currentPhoto, 'current photo')
+          console.log(action.photograph, 'updated photograph')
+          updatedArr.push(currentPhoto);
         } else {
-          updatedArr.push(state[action.artist]);
+          updatedArr.push(action.photograph);
         }
       }
       return updatedArr;
-      
+
     default:
       return state;
   }

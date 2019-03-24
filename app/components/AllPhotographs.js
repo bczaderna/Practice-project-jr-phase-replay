@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import { UpdatePhotographForm } from './UpdatePhotographForm'
+import UpdatePhotographForm  from './UpdatePhotographForm';
 import { removePhotograph, getAllPhotographs } from '../redux/allPhotographsReducer'
 
 
@@ -9,11 +9,12 @@ class AllPhotographs extends Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   showForm: false
-    // }
+    this.state = {
+      showForm: false,
+      photoIdToUpdate: 0
+    }
     this.deleteItem = this.deleteItem.bind(this);
-    // this.toggleUpdateForm = this.toggleUpdateForm.bind(this);
+    this.toggleUpdateForm = this.toggleUpdateForm.bind(this);
   }
 
   componentDidMount() {
@@ -24,13 +25,16 @@ class AllPhotographs extends Component {
     this.props.removePhotograph(photographId);
   }
 
-  // toggleUpdateForm() {
-  //   console.log(this.state, 'what is state before')
-  //   this.setState({
-  //     showForm: !this.state.showForm
-  //   })
-  //   console.log(this.state.showForm, 'has it toggled')
-  // }
+  toggleUpdateForm(photographId) {
+    console.log(this.state, 'what is state before')
+
+   
+    this.setState({
+      showForm: !this.state.showForm,
+      photoIdToUpdate: photographId
+    })
+    console.log(this.state.showForm, 'has it toggled')
+  }
 
   render() {
     return (
@@ -53,23 +57,24 @@ class AllPhotographs extends Component {
               >
                 remove
               </button>
-              
-              { <UpdatePhotographForm />}
 
-              {/* <button
+             
+              
+
+              <button
                 type="button"
                 className="label"
                 onClick={() => {
-                  this.toggleUpdateForm()
+                  this.toggleUpdateForm(photograph.id)
                 }}
               >
                 update
-              </button>{this.state.showForm ? <UpdatePhotographForm /> : null} */}
+              </button>{this.state.showForm ? <UpdatePhotographForm photoId={this.state.photoIdToUpdate}/> : null}
               <br />
               <br />
             </div>
           ))}
-        </ul>
+        </ul> 
       </div>
     );
   }
