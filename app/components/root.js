@@ -7,6 +7,7 @@ import SingleArtist from "./SingleArtist";
 import Navbar from "./Navbar";
 import NewArtistForm from './NewArtistForm';
 import NewPhotographForm from './NewPhotographForm';
+import HomePage from './HomePage'
 import NotFound from "./NotFound";
 
 const Root = () => {
@@ -23,16 +24,15 @@ const Root = () => {
             <Route
               path="/"
               exact
-              strict
-              render={() => {
-                return (
-                  <div id='welcome'>
-                    <h1>Welcome to the Photography Center!</h1>
-                    <br />
-                    <img id='welcome-image' src='https://www.whitehotmagazine.com/UserFiles/image/2010/Henri%20Cartier-Bresson/bresson_yugoslavia300.jpg'></img>
-                  </div>
-                );
-              }}
+              component={HomePage} 
+                // return (
+                //   <div id='welcome'>
+                //     <h1>Welcome to the Photography Center!</h1>
+                //     <br />
+                //     <img id='welcome-image' src='https://www.whitehotmagazine.com/UserFiles/image/2010/Henri%20Cartier-Bresson/bresson_yugoslavia300.jpg'></img>
+                //   </div>
+                // );
+          
             />
         
 
