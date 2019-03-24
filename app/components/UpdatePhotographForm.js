@@ -17,8 +17,8 @@ class UpdatePhotographForm extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.photographs, 'local state')
-        console.log(this.props.singlePhotograph, 'single photo state from store')
+        console.log(this.props, 'what is props in updatePhotograph')
+        
     }
 
     handleChange(event) {
@@ -44,8 +44,9 @@ class UpdatePhotographForm extends Component {
         });
       }
 
-
+//some sort of conditional rendering here based on photoId passed down as props....
     render () {
+      console.log(this.state, 'state on update form')
         return (
         <form onSubmit={this.handleSubmit}>
         <br></br>

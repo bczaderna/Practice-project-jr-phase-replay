@@ -106,7 +106,7 @@ class NewPhotographForm extends Component {
 const mapStateToProps = (state) => {
     
     return {
-      photographs: state.addPhotograph.photographs,
+      photographs: state.allPhotographs
     }
   }
  
