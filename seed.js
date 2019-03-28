@@ -3,6 +3,7 @@ const {green, red} = require('chalk')
 const Artists = require('./server/db/artists')
 const Photographs = require('./server/db/photographs')
 
+//get rid of primary keys -- sequelize auto-generates. But I need to put in the association id's
 
   const artists = [{
     firstName: 'Walker',
@@ -112,6 +113,7 @@ const Photographs = require('./server/db/photographs')
   }]
 
 const seed = async () => {
+  try {
     await db.sync({force: true})
 
     await Promise.all(artists.map(artist => {
@@ -124,11 +126,12 @@ const seed = async () => {
 
   console.log(green('Seeding success!'))
   db.close()
-}
-
-seed()
-  .catch(err => {
+  } catch (err) {
     console.error(red('Oh noes! Something went wrong!'))
     console.error(err)
     db.close()
-  })
+  }
+}
+
+seed()
+  
